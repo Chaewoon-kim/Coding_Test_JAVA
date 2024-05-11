@@ -1,9 +1,7 @@
 class Solution {
     public int[] solution(int money) {
-        int max = 0;
-        int left = 0;
-        max = money / 5500 ; 
-        left = money % 5500 ;
+        int max = money / 5500 ; 
+        int left = money % 5500 ;
         int [] answer = {max,left};
         return answer;
     }
