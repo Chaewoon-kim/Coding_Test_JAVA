@@ -4,12 +4,10 @@ class Solution {
         int num2 = 2 * a * b;
         
         int answer = 0;
-        if(num1 > num2){
+        if(num1 >= num2){
             answer = num1;
-        }else if(num1 < num2){
-            answer = num2;
         }else{
-            answer = num1;
+            answer = num2;
         }
         return answer;
         
