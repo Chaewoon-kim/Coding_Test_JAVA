@@ -17,15 +17,16 @@ class Main{
             drinks[i] = sc.nextInt();
         }
 
-        int [] setMenu = new int[6];
+        int minSetPrice = Integer.MAX_VALUE;
         int k = 0;
         for(int i = 0 ; i < 3; i++){
             for(int j = 0 ; j < 2 ; j++){
-                setMenu[k] = burgers[i] + drinks[j] - 50;
-                k++;
+                int setPrice = burgers[i] + drinks[j] - 50;
+                if(setPrice < minSetPrice){
+                    minSetPrice = setPrice;
+                }
             }
         }
-        Arrays.sort(setMenu);
-        System.out.println(setMenu[0]);
+          System.out.println(minSetPrice);
        }
 }
