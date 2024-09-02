@@ -16,11 +16,7 @@ class Main{
         int reverseNum1 = Integer.parseInt(s1);
         int reverseNum2 = Integer.parseInt(s2);
         
-        if(reverseNum1 > reverseNum2){
-            System.out.println(reverseNum1);
-        }else{
-            System.out.println(reverseNum2);
-        }
+       System.out.println(reverseNum1 > reverseNum2 ? reverseNum1 : reverseNum2);
         
     }
 }
