@@ -5,11 +5,9 @@ class Main{
         Scanner sc = new Scanner(System.in);
         
         int day = sc.nextInt();
-        int [] carNums = new int[5];
-        int count = 0; //10부제 위반 차량의 수
-        for(int i = 0 ; i < carNums.length; i++){
-            carNums[i] = sc.nextInt();
-            if(carNums[i] ==  day){
+        int count = 0; 
+        for(int i = 0 ; i < 5 ; i++){
+            if(sc.nextInt() == day){
                 count++;
             }
         }
