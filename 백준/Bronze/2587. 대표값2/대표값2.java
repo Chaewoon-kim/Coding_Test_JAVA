@@ -10,8 +10,8 @@ class Main{
         }
         
         int sum = 0;
-        for(int i = 0 ; i < numArr.length; i++){
-            sum += numArr[i];
+        for(int i : numArr){
+            sum += i;
         }
         //평균
         int avg = sum / numArr.length;
