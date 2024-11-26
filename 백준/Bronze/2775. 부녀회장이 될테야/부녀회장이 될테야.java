@@ -24,6 +24,9 @@ class Main{
         if(k == 0){
             return n;
         }
+        if(memo[k][n]!= 0){
+            return memo[k][n];
+        }
         for(int i = 1 ; i <= n ; i++){
             total += countPeople(k-1 , i, memo);
         }
