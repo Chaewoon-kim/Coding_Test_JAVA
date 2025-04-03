@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 class Main {
 
 
@@ -12,41 +9,37 @@ class Main {
         int M = sc.nextInt(); //성의 세로 크기 (열)
         sc.nextLine();
 
-        List<String> castle = new ArrayList<>();
+        boolean[] rowGuard = new boolean[N];
+        boolean[] colGuard = new boolean[M];
 
-        int rowCount = 0;
-        int colCount = 0;
-
+        //O(NM)
         for (int i = 0; i < N; i++) {
-            castle.add(sc.nextLine()); //성의 상태
-        }
-
-        //행에서 경비원 여부
-        for (String s : castle) {
-            if (s.contains("X")){
-                rowCount++;
-            }
-        }
-
-        //열에서 경비원 여부
-        for (int i = 0; i < M; i++) {
-            boolean exist = false;
-            for (String s : castle) {
-                if (s.charAt(i) == 'X'){
-                    exist = true;
-                    break;
+            String row = sc.nextLine();
+            for (int j = 0; j < M; j++) {
+                if (row.charAt(j) == 'X'){
+                    rowGuard[i] = true;
+                    colGuard[j] = true;
                 }
             }
-            if (exist){
-                colCount++;
+        }
+
+        //경비원이 없는 행 개수 카운트
+        int needRowCount = 0;
+        for (boolean row : rowGuard) {
+            if (!row){
+                needRowCount++;
+            }
+        }
+
+        //열 개수 카운트
+        int needColCount = 0;
+        for (boolean col : colGuard) {
+            if (!col){
+                needColCount++;
             }
         }
 
 
-        int needRowCount = N - rowCount; //5-2 = 3
-        int needColCount = M - colCount; //8-6 = 2
-
         System.out.println(Math.max(needRowCount,needColCount));
-
     }
 }
