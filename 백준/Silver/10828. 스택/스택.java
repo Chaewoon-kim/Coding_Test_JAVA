@@ -1,23 +1,27 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Scanner;
 
+//BufferedReader 활용
 class Main {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         Deque<Integer> stack = new ArrayDeque<>();
 
-        int N = sc.nextInt(); //명령의 수 N
-        sc.nextLine();
+        int N = Integer.parseInt(br.readLine()); //명령의 수 
+        
 
         for (int i = 0; i < N; i++) {
-            String command = sc.nextLine();
+            String command = br.readLine();
 
             if (command.startsWith("push")){
                 String[] parts = command.split(" ");
-                int value = Integer.parseInt(parts[1]); //숫자 값만을 분리해 스택에 push 
+                int value = Integer.parseInt(parts[1]);
                 stack.push(value);
             }else if (command.startsWith("pop")){
                 sb.append(stack.isEmpty() ? -1 : stack.pop()).append("\n");
