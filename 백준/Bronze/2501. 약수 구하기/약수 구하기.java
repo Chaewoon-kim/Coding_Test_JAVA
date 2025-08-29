@@ -1,27 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
+class Main {
 
-class Main{
-    public static void main(String [] args){
-        Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException  {
 
-		int number = sc.nextInt(); //N
-		int count = sc.nextInt(); //K
-		ArrayList<Integer> list = new ArrayList<>();
+		/*첫째 줄에 N의 약수들 중 K번째로 작은 수를 출력한다. 만일 N의 약수의 개수가 K개보다 적어서 K번째 약수가 존재하지 않을 경우에는 0을 출력하시오*/
 
-		for(int i = 1; i <= number; i++){
-			if(number % i == 0){
-				list.add(i);
-			}
-		}
-		if(list.size() < count){
-			System.out.println(0);
-		}else{
-			System.out.println(list.get(count - 1));
-		}
+				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				StringTokenizer st = new StringTokenizer(br.readLine());
+				
+				int N = Integer.parseInt(st.nextToken());
+				int K = Integer.parseInt(st.nextToken());
+				
+				ArrayList<Integer> list = new ArrayList<>();
+				
+				for(int i = 1; i <= N; i++){
+					if(N % i == 0) list.add(i);
+				}
+				
+				if(K <= list.size()) System.out.println(list.get(K - 1));
+				else{
+					System.out.println(0);
+				}
+				
 
 
 	}
- 
+
 }
