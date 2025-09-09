@@ -1,30 +1,30 @@
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
-class Main{
-    
-    public static void main(String [] args) throws IOException{
-        //ROT13 => 알파벳을 13글자씩 밀어서 만든다.
-		
+class Main {
+	public static void main(String[] args) throws IOException {
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
 		String input = br.readLine();
-		
-		//알파벳이 아닌 글자는 그대로 남아 있어야 함 
-		for(int i = 0 ; i < input.length(); i++){
-			char c = input.charAt(i);
-			
-			if(c >= 'A' && c <= 'Z'){
-				c += 13;
-				if(c > 'Z') c -= 26;
-			}
-			else if(c >= 'a' && c <= 'z'){
-				c += 13;
-				if(c > 'z') c -= 26;
-			}
-			System.out.print(c);
+		for(int i = 0 ; i < input.length() ; i++){
+			System.out.print(Rot13(input.charAt(i)));
 		}
-        
-    }
+
+
+	}
+
+
+	private static char Rot13(char c){
+
+		if(c >= 'A' && c <= 'Z'){
+			return (char)((c - 'A' + 13) % 26 + 'A');
+		}
+		if(c >= 'a' && c <= 'z'){
+			return (char)((c - 'a' + 13) % 26 + 'a');
+		}
+		return c;
+	}
 }
+
+
