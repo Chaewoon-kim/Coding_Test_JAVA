@@ -1,30 +1,28 @@
-import java.util.Arrays;
-import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.StringTokenizer;
 
 class Main {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int count = Integer.parseInt(br.readLine()); //진짜 약수의 개수 
+		StringTokenizer st = new StringTokenizer(br.readLine()); //진짜 약수 
 		
-		//N의 진짜 약수의 개수 
-		int Ncount = sc.nextInt();
-		int [] numbers = new int [Ncount];
+		List<Integer> numbers = new ArrayList<>();
 		
-		for(int i = 0 ; i < Ncount ; i++){
-			numbers[i] = sc.nextInt();
+		while(st.hasMoreTokens()){
+			numbers.add(Integer.parseInt(st.nextToken()));
 		}
 		
-		//배열 정렬 
-		Arrays.sort(numbers);
-		System.out.println(numbers[0] * numbers[Ncount - 1]);
+		Collections.sort(numbers);
 		
-		
-		
-		
-		
-		
+		System.out.println(numbers.get(0) * numbers.get(numbers.size() - 1));
 		
 	}
 
